@@ -3,42 +3,42 @@
 function makeNotesArray() {
   return [
     {
-      id: 1,
+      //id: 1,
       note_name: 'Squirtle',
       date_modified: '2029-01-22T16:28:32.615Z',
       content: 'Squirtle, Wartortle, Blastoise',
       folder_id: 2
     },
     {
-      id: 2,
+      //id: 2,
       note_name: 'Charmander',
       date_modified: '2100-05-22T16:28:32.615Z',
       content: 'Charmander, Charmeleon, Charizzard',
       folder_id: 1
     },
     {
-      id: 3,
+      //id: 3,
       note_name: 'Bulbasaur',
       date_modified: '1919-12-22T16:28:32.615Z',
       content: 'Bulbasaur, Ivysaur, Venusaur',
       folder_id: 3
     },
     {
-      id: 4,
+     //id: 4,
       note_name: 'Ponyta',
       date_modified: '2029-01-22T16:28:32.615Z',
       content: 'Ponyta, Rapidash',
       folder_id: 1
     },
     {
-      id: 5,
+      //id: 5,
       note_name: 'Shellder',
       date_modified: '2029-01-22T16:28:32.615Z',
       content: 'Shellder, Cloyster',
       folder_id: 2
     },
     {
-      id: 6,
+      //id: 6,
       note_name: 'Tangela',
       date_modified: '1919-12-22T16:28:32.615Z',
       content: 'Just this one bro',

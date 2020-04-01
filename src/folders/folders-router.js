@@ -26,7 +26,15 @@ foldersRouter
   .post(jsonParser, (req, res, next) => {
     const folder_name = req.body;
     const newFolder = folder_name;
+    const expectedKeys = ['folder_name'];
 
+    for (let i = 0; i < expectedKeys.length; i++) {
+      if(!newFolder.hasOwnProperty(expectedKeys[i])) {
+        return res.status(400).json({
+          error: { message: `Missing '${expectedKeys}' in request body`}
+        });
+      }
+    }
     for (const [key, value] of Object.entries(newFolder))
       if (value == null)
         return res.status(400).json({

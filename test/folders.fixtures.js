@@ -18,16 +18,16 @@ function makeFoldersArray() {
 }
 
 function makeMaliciousFolder() {
-  const maliciousFoler = {
+  const maliciousFolder = {
     id: 911,
-    title: 'Naughty naughty very naughty <script>alert("xss");</script>'
+    folder_name: 'Naughty naughty very naughty <script>alert("xss");</script>'
   };
   const expectedFolder = {
-      ...maliciousFoler,
-      title: 'Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;'
+      ...maliciousFolder,
+      folder_name: 'Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;'
   };
   return {
-      maliciousFoler,
+      maliciousFolder,
       expectedFolder
   };
 }
