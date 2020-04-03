@@ -130,10 +130,9 @@ describe('Notes Endpoints', function() {
         });
     });
 
-    //returning 404 instead of 200
     it('removes XSS attack content', () => {
       return supertest(app)
-        .get(`/api/articles/${maliciousNote.id}`)
+        .get(`/api/notes/${maliciousNote.id}`)
         .expect(200)
         .expect(res => {
           expect(res.body.note_name).to.eql(expectedNote.note_name);
