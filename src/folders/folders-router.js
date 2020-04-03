@@ -35,11 +35,12 @@ foldersRouter
         });
       }
     }
-    for (const [key, value] of Object.entries(newFolder))
+    for (const [key, value] of Object.entries(newFolder)) {
       if (value == null)
         return res.status(400).json({
           error: { message: `Missing '${key}' in request body` }
         });
+    }
     FoldersService.insertFolder(
       req.app.get('db'),
       newFolder
@@ -87,19 +88,29 @@ foldersRouter
   .patch(jsonParser, (req, res, next) => {
     const folder_name = req.body;
     const folderToUpdate = folder_name;
+    const expectedKeys = ['folder_name'];
+
+    for (let i = 0; i < expectedKeys.length; i++) {
+      if(!folderToUpdate.hasOwnProperty(expectedKeys[i])) {
+        return res.status(400).json({
+          error: { message: `Request body must contain '${expectedKeys}'`}
+        });
+      }
+    }
         
     const numberOfValues = Object.values(folderToUpdate).filter(Boolean).length;
     if (numberOfValues === 0)
       return res.status(400).json({
         error: {
-          message: 'Request body must contain \'folder name\''
+          message: 'Request body must contain \'folder_name\''
         }
       });
 
+    const updatedFolder = { folder_name: folderToUpdate.folder_name};
     FoldersService.updateFolder(
       req.app.get('db'),
       req.params.folder_id,
-      folderToUpdate
+      updatedFolder
     )
       .then(numRowsAffected => {
         res.status(204).end();

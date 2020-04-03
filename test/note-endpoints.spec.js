@@ -115,7 +115,7 @@ describe('Notes Endpoints', function() {
     });
   });
 
-  context.only('Given an XSS attack note', () => {
+  context('Given an XSS attack note', () => {
     const testFolders = makeFoldersArray();
     const { maliciousNote, expectedNote } = makeMaliciousNote();
 

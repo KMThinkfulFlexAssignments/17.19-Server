@@ -240,7 +240,7 @@ describe('Folder Endpoints', function() {
           });
       });
 
-      //responds with 500 instead of 400, also tests dont close anymore
+
       it('responds with 400 when no required fields are supplied', () => {
         const idToUpdate = 2;
         return supertest(app)
@@ -248,12 +248,11 @@ describe('Folder Endpoints', function() {
           .send({ irrelevantField: 'foo' })
           .expect(400, {
             error: {
-              message: 'Request body must contain \'folder name\''
+              message: 'Request body must contain \'folder_name\''
             }
           });
       });
 
-      //responds with 500 instead of 204
       it('responds with 204 when updating a field', () => {
         const idToUpdate = 2;
         const updatedFolder = {
