@@ -186,12 +186,11 @@ describe('Folder Endpoints', function() {
           .insert(testFolders);
       });
 
-      //responds with 404 instead of 204
       it('responds with 204 and removes the folder', () => {
         const idToRemove = 2;
         const expectedFolders = testFolders.filter(folder => folder.id !== idToRemove);
         return supertest(app)
-          .delete(`/api.folders/${idToRemove}`)
+          .delete(`/api/folders/${idToRemove}`)
           .expect(204)
           .then(res =>
             supertest(app)
@@ -268,7 +267,7 @@ describe('Folder Endpoints', function() {
         return supertest(app)
           .patch(`/api/folders/${idToUpdate}`)
           .send({
-          ...updatedFolder,
+            ...updatedFolder,
             fieldToIgnore: 'should not be in the GET response'
           })
           .expect(204)
